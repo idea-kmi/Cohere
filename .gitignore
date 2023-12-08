@@ -1,0 +1,17 @@
+# Items to ignore
+#
+# Folders
+.well-known
+**/uploads
+**/MDLL
+**/TEL
+**/TEST
+# Files
+verifier
+verifier2
+secrets.php
+config.php
+*.DS_Store
+._*
+.vs
+.vscode
