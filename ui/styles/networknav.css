@@ -1,0 +1,73 @@
+/** Network Navigation Maps **/
+
+.navnetworkarrow {
+	float:left;
+	height:100%;
+	margin-top:20px;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+.navnetworkarrowshort {
+	float:left;
+	height:100%;
+	margin-top:20px;
+	margin-left:0px;
+	margin-right:0px;
+}
+
+.navnetworkimage {
+	margin-bottom:3px;
+}
+
+.navnetworkiconfirst {
+	float:left;
+	height:100%;
+	margin-left:10px;
+	margin-top:10px;
+	font-size:9pt;
+	color:#27318B;
+}
+
+.navnetworkicon {
+	float:left;
+	height:100%;
+	margin-top:10px;
+	font-size:9pt;
+	color:#27318B;
+}
+
+.navnetworkdivider {
+	float:left;
+	height:100%;
+	margin-top:32px;
+	margin-left:3px;
+	margin-right:3px;
+	font-size:11pt;
+}
+
+.navnetworkdividerline {
+	float:left;
+	height:100%;
+	margin:0px;
+	margin-right:8px;
+	margin-left:8px;
+	border-left:2px solid #D3D3D3;
+}
+
+.navnetworktext {
+	font-weight:bold;
+	clear:both;
+	background:white;
+}
+
+.navnetworktextselected {
+	font-weight:bold;
+	clear:both;
+	background:yellow;
+}
+
+.navnetworklink {
+	float:left;
+	color:#27318B;
+}
