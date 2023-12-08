@@ -1,0 +1,35 @@
+* About to connect() to maps.googleapis.com port 443 (#0)
+*   Trying 216.58.201.42... * connected
+* Connected to maps.googleapis.com (216.58.201.42) port 443 (#0)
+* warning: ignoring value of ssl.verifyhost
+* skipping SSL peer certificate verification
+* SSL connection using TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* Server certificate:
+* 	subject: CN=*.googleapis.com,O=Google LLC,L=Mountain View,ST=California,C=US
+* 	start date: Aug 07 18:36:36 2018 GMT
+* 	expire date: Oct 16 18:28:00 2018 GMT
+* 	common name: *.googleapis.com
+* 	issuer: CN=Google Internet Authority G3,O=Google Trust Services,C=US
+> POST /maps/api/geocode/json?key=AIzaSyDK--pd3qVFiWF5bOuCPQ_k4fUn5bmX5sU&address=Peterhead%2CGB%2C HTTP/1.1
+Host: maps.googleapis.com
+Accept: */*
+Content-Length: 0
+Content-Type: application/x-www-form-urlencoded
+
+< HTTP/1.1 200 OK
+< Content-Type: application/json; charset=UTF-8
+< Date: Sat, 18 Aug 2018 19:59:49 GMT
+< Pragma: no-cache
+< Expires: Fri, 01 Jan 1990 00:00:00 GMT
+< Cache-Control: no-cache, must-revalidate
+< Access-Control-Allow-Origin: *
+< Server: mafe
+< X-XSS-Protection: 1; mode=block
+< X-Frame-Options: SAMEORIGIN
+< Alt-Svc: quic=":443"; ma=2592000; v="44,43,39,35"
+< Accept-Ranges: none
+< Vary: Accept-Language,Accept-Encoding
+< Transfer-Encoding: chunked
+< 
+* Connection #0 to host maps.googleapis.com left intact
+* Closing connection #0
