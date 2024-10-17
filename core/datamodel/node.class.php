@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2013 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -95,7 +95,7 @@ class CNode {
 		$params[0] = $this->nodeid;
 
         // without Themes
-		$resArray = $DB->select($HUB_SQL->DATAMODEL_NODE_SELECT, $params);
+        $resArray = $DB->select($HUB_SQL->DATAMODEL_NODE_SELECT, $params);
     	if ($resArray !== false) {
 			$count = count($resArray);
 			if ($count == 0) {

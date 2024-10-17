@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2012 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -310,13 +310,13 @@ li.option {
 
                 <script type="text/javascript">
 
-                    var itemCloseIdea = document.getElementById('add-idea-sc-close');
+                    /*
+					var itemCloseIdea = document.getElementById('add-idea-sc-close');
                     itemCloseIdea.style.display = "none";
                     itemCloseIdea.addEventListener("click", ytAddIdeaC);
 
                     var itemOpenIdea = document.getElementById('add-idea-sc-open');
                     itemOpenIdea.addEventListener("click", ytAddIdeaC);
-
 
                     var itemCloseConn = document.getElementById('add-conn-sc-close');
                     itemCloseConn.style.display = "none";
@@ -340,6 +340,7 @@ li.option {
 
                     var itemOpenOER = document.getElementById('add-oer-sc-open');
                     itemOpenOER.addEventListener("click", ytCIOERC);
+					*/
                 </script>
 
                 <h3>Jetpack Movies (An experimental Firefox Extension)</h3>

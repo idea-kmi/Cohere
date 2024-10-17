@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2012 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -311,17 +311,17 @@ li.option {
                     </tr>
                 </table>
                 <script type="text/javascript">
-                    $('add-idea-sc-close').hide();
-                    Event.observe('add-idea-sc-open','click', ytAddIdea);
-                    Event.observe('add-idea-sc-close','click', ytAddIdeaC);
+                    //$('add-idea-sc-close').hide();
+                    //Event.observe('add-idea-sc-open','click', ytAddIdea);
+                    //Event.observe('add-idea-sc-close','click', ytAddIdeaC);
 
-                    $('add-conn-sc-close').hide();
-                    Event.observe('add-conn-sc-open','click', ytAddConn);
-                    Event.observe('add-conn-sc-close','click', ytAddConnC);
+                    //$('add-conn-sc-close').hide();
+                    //Event.observe('add-conn-sc-open','click', ytAddConn);
+                    //Event.observe('add-conn-sc-close','click', ytAddConnC);
 
-                    $('add-url-sc-close').hide();
-                    Event.observe('add-url-sc-open','click', ytAddURL);
-                    Event.observe('add-url-sc-close','click', ytAddURLC);
+                    //$('add-url-sc-close').hide();
+                    //Event.observe('add-url-sc-open','click', ytAddURL);
+                    //Event.observe('add-url-sc-close','click', ytAddURLC);
                 </script>
 
 

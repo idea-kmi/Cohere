@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2012 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -284,26 +284,5 @@
 		<!-- hr class="hrline" / -->
 
     </div>
-
-	<!-- Firefox plugin too old and no longer recognised by Firefox. -->
-    <!--div id="firefoxplugin" style="clear:both; float:left; margin: 3px; margin-top: 0px;">
-	    <?php
-	    //detect if firefox browser being used and show link to FF
-	    if ( strpos($_SERVER['HTTP_USER_AGENT'], 'Firefox')){
-	        ?>
-		<a href="<?php print($CFG->homeAddress);?>plugin/cohere.xpi"
-	  		iconURL="<?php print($CFG->homeAddress);?>images/firefox.png""
-	  		hash="MD5:C226677F9ADDB852A6118684176F687E"
-	  		onclick="return install(event);"><img id="fflogo" src="<?php print($CFG->homeAddress);?>images/firefox.png"/>Install Cohere FireFox plugin 0.7.9</a>
-	     <br><br>
-	        <?php
-	    } else {
-	    ?>
-	       <img id="fflogo" src="<?php print($CFG->homeAddress);?>images/firefox.png"/>
-	       If you were using <a href="http://www.mozilla.com/firefox/">Firefox</a>, you could use the Cohere Firefox plugin!
-
-	    <?php } ?>
-    </div -->
-
 </div>
 <div id="sidebar-footer"></div>

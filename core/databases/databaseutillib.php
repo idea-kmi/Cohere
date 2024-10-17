@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2020 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -2675,6 +2675,7 @@ function getAggregatedNodeIDs($nodeid){
 	$params[3] = $USER->userid;
 
     $sql = $HUB_SQL->DATAMODEL_UTIL_AGGREGATED_NODEIDS;
+	$sql .= $HUB_SQL->AND;
 	$sql .= $HUB_SQL->APILIB_NODES_PERMISSIONS_ALL;
 
 	$resArray = $DB->select($sql, $params);

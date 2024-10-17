@@ -1,7 +1,7 @@
 <?php
 /********************************************************************************
  *                                                                              *
- *  (c) Copyright 2012 The Open University UK                                   *
+ *  (c) Copyright 2007-2024 The Open University UK                              *
  *                                                                              *
  *  This software is freely distributed in accordance with                      *
  *  the GNU Lesser General Public (LGPL) license, version 3 or later            *
@@ -27,7 +27,8 @@
     include_once($CFG->dirAddress."ui/header.php");
     include_once($CFG->dirAddress."ui/tabberlib.php");
     global $USER;
-    $nodeid = required_param("nodeid",PARAM_ALPHANUM);
+
+    $nodeid = required_param("nodeid",PARAM_ALPHANUMEXT);
 
 	// default parameters
     $start = optional_param("start",0,PARAM_INT);
@@ -40,9 +41,11 @@
     $filtergroup = optional_param("filtergroup","",PARAM_TEXT);
     $filterlist = optional_param("filterlist","",PARAM_TEXT);
     $filternodetypes = optional_param("filternodetypes","",PARAM_TEXT);
+    $filternodetypes = optional_param("filternodetypes","",PARAM_TEXT);
+    $filterusers = optional_param("filterusers","",PARAM_TEXT);
 
 	// network search parameters
-    $netnodeid = optional_param("netnodeid","",PARAM_ALPHANUM);
+    $netnodeid = optional_param("netnodeid","",PARAM_ALPHANUMEXT);
     $netq = optional_param("netq","",PARAM_TEXT);
     $netscope = optional_param("netscope","",PARAM_ALPHA);
     $netlinkgroup = optional_param("netlinkgroup","",PARAM_TEXT);
@@ -59,7 +62,7 @@
 
     $node = getNode($nodeid);
 
-    if($node instanceof Error){
+    if($node instanceof Hub_Error){
         echo "<h1>Idea not found</h1>";
         include_once($CFG->dirAddress."ui/footer.php");
         die;
