@@ -19,9 +19,6 @@
 *   [Language](#language)
 *   [Additional Developer Notes](#additional-developer-notes)
 
-*   [Introduction to using an Evidence Hub](#introduction-to-using-an-Evidence-Hub)
-
-
 ## Overview
 
 We experience the information ocean as streams of media fragments, flowing past us in every modality... To make sense of these, learners, researchers and analysts must organise them into coherent patterns... Cohere was an idea management tool for people to weave meaningful connections between ideas, for personal, team or social use...  
