@@ -30,7 +30,7 @@
 
     <p>For help getting started with Cohere, then please have a look at <a href="<?php print($CFG->homeAddress)?>index.php#screencast">our screencasts</a>.</p>
 
-    <p>For details of how to use our RESTful API, please visit the <a href="code-doc/Cohere-API/apilib.html">API documentation</a>. </p>
+    <p>For details of how to use our RESTful API, please visit the <a href="code-doc/Cohere-API/apilib.php">API documentation</a>. </p>
 
     <p>For help with using RDF with Cohere, please visit out <a href="rdf.php">RDF how-to</a>.</p>
 

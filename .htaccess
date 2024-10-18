@@ -2,8 +2,6 @@
 #For HSTS
 Header always set Strict-Transport-Security "max-age=3600" "expr=%{HTTPS} == 'on'"
 
-#Redirect 301 / http://cohere.open.ac.uk/index-maintenance.php
-
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html

@@ -71,15 +71,18 @@ $CFG->TELGroup = "";
  */
 
 // home address is the base url for the website and must end with trailing '/'
-$CFG->homeAddress = "http://web/path/to/website/";
+$CFG->homeAddress = "url/to/website/";
 
 //Support address is the base url for the website user support area and must end with trailing '/'
 //We use a modified installation of Bugzilla. You may want to change this to offer your own support.
-$CFG->supportAddress = "http://cohere.open.ac.uk/support/";
+$CFG->supportAddress = "url/to/support/address";
 
 //Blog address is the base url for the website blog and must end with trailing '/'
 // You may want to change this to offer your own blog.
-$CFG->blogAddress = "http://kmi.open.ac.uk/technologies/cohere/";
+$CFG->blogAddress = "url/to/blo/address";
+
+// Link to you accessibility page
+$CFG->accessibilityLink = "url to your accessibility page";
 
 // dir address is the base file path for the website
 $CFG->dirAddress = "/file/path/to/website/";
@@ -121,20 +124,11 @@ $CFG->defaultRoleGroupID = "defaultrolegroup";
 
 /*** Login related variables ***/
 
-// the author type text to store in the database for open learn users
-$CFG->AUTH_TYPE_OPENLEARN = "openlearn";
-
 // the author type text to store in the database for cohere users
 $CFG->AUTH_TYPE_COHERE = "cohere";
 
 // the author type text to store in the database for openid users
 $CFG->AUTH_TYPE_OPENID = "openid";
-
-// the openlearn website login page url
-$CFG->auth_openlearn_login_url = "http://openlearn.open.ac.uk/login/index.php";
-
-// the openlearn website login url to validate user login details
-$CFG->auth_openlearn_validate_url = "http://openlearn.open.ac.uk/blocks/msg/services/validate.php";
 
 //the default status of an item
 $CFG->STATUS_ACTIVE = 0;
@@ -176,7 +170,6 @@ $CFG->EMAIL_REPLY_TO = "";
 
 // Which email address to send Spam / inapproriate content reports to
 $CFG->SPAM_ALERT_RECIPIENT = "";
-
 
 /*** Proxy related variables ***/
 

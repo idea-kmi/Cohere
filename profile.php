@@ -171,11 +171,6 @@ function toggleTags() {
 <p><span class="required">*</span> indicates required field</p>
 <form name="editprofile" action="profile.php" method="post" enctype="multipart/form-data">
 
-    <?php
-
-        // if an openlearn user then can not change email/password
-        if ($USER->getAuthType() != $CFG->AUTH_TYPE_OPENLEARN){
-    ?>
     <div class="formrow">
     <label class="formlabel" for="photo">Current photo:</label>
     <img class="forminput" src="<?php print $USER->photo; ?>"/>
@@ -186,7 +181,7 @@ function toggleTags() {
     </div>
    <div class="formrow">
         <label class="formlabel" for="email">Email:</label>
-        <input class="forminput" id="email" name="email" size="40" value="<?php print $email; ?>" <?php if($USER->getAuthType() == $CFG->AUTH_TYPE_OPENLEARN){ echo 'disabled="true"';}?>><span class="required">*</span>
+        <input class="forminput" id="email" name="email" size="40" value="<?php print $email; ?>"><span class="required">*</span>
     </div>
 
     <div class="formrow">
@@ -207,9 +202,7 @@ function toggleTags() {
             }
         ?>
     </div>
-    <?php
-        }
-    ?>
+
     <div class="formrow">
         <label class="formlabel" for="fullname">Full name:</label>
         <input class="forminput" type="text" id="fullname" name="fullname" size="40" value="<?php print $fullname; ?>"><span class="required">*</span>

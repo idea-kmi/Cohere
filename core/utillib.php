@@ -552,28 +552,30 @@ function geoCode($loc,$cc) {
     global $CFG;
     $geo = array("lat"=>"", "lng"=>"");
 
-    // BING
-   	$geocodeURL = "http://dev.virtualearth.net/REST/v1/Locations?q=".urlencode($loc).",%20".urlencode($cc)."&key=".$CFG->BINGMAPS_KEY;
-	//https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query
-	//https://www.bingmapsportal.com/Application#
+	if (isset($CFG->BINGMAPS_KEY) && $CFG->BINGMAPS_KEY != "") {
+		// BING
+		$geocodeURL = "http://dev.virtualearth.net/REST/v1/Locations?q=".urlencode($loc).",%20".urlencode($cc)."&key=".$CFG->BINGMAPS_KEY;
+		//https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query
+		//https://www.bingmapsportal.com/Application#
 
-    $http = array('method'  => 'GET',
-                    'request_fulluri' => true,
-                    'timeout' => '10');
-    if($CFG->PROXY_HOST != ""){
-        $http['proxy'] = $CFG->PROXY_HOST . ":".$CFG->PROXY_PORT;
-    }
+		$http = array('method'  => 'GET',
+						'request_fulluri' => true,
+						'timeout' => '10');
+		if($CFG->PROXY_HOST != ""){
+			$http['proxy'] = $CFG->PROXY_HOST . ":".$CFG->PROXY_PORT;
+		}
 
-    $opts = array();
-    $opts['http'] = $http;
-    $context  = stream_context_create($opts);
+		$opts = array();
+		$opts['http'] = $http;
+		$context  = stream_context_create($opts);
 
-	$response = file_get_contents($geocodeURL, 0, $context);
-	if ($response !== false) {
-		if ($geodata = json_decode($response)) {
-			$geoPoint = $geodata->resourceSets[0]->resources[0]->point->coordinates;
-			$geo["lat"] = sprintf($geoPoint[0]);
-			$geo["lng"] = sprintf($geoPoint[1]);
+		$response = file_get_contents($geocodeURL, 0, $context);
+		if ($response !== FALSE) {
+			if ($geodata = json_decode($response)) {
+				$geoPoint = $geodata->resourceSets[0]->resources[0]->point->coordinates;
+				$geo["lat"] = sprintf($geoPoint[0]);
+				$geo["lng"] = sprintf($geoPoint[1]);
+			}
 		}
 	}
 
@@ -590,25 +592,6 @@ function geoCode($loc,$cc) {
 function endsWith($haystack, $needle) {
     return substr($haystack, -strlen($needle)) == $needle;
 }
-
-
-/**
- * Ends With
- *
- * @param string $FullStr
- * @param string $EndStr
- * @return boolean
- */
- /*
-function endsWith($FullStr, $EndStr){
-    // Get the length of the end string
-    $StrLen = strlen($EndStr);
-    // Look at the end of FullStr for the substring the size of EndStr
-    $FullStrEnd = substr($FullStr, strlen($FullStr) - $StrLen);
-    // If it matches, it does end with EndStr
-    return $FullStrEnd == $EndStr;
-}
-*/
 
 /**
  * Send a tweet to the Cohere tweet account for the given message and the given Cohere url.

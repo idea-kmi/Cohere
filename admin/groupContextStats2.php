@@ -135,7 +135,7 @@ if($USER == null || $USER->getIsAdmin() == "N"){
 
 </div> <!-- end main -->
 <div id="footer">
-    A <a href="http://projects.kmi.open.ac.uk/hyperdiscourse/">KMi</a> Tool from the <a href="http://www.olnet.org/">OLnet</a> Project
+    A <a href="https://kmi.open.ac.uk">KMi</a> Tool from the <a href="https:/open.ac.uk/">Open University</a>
     | <a href="<?php print($CFG->homeAddress);?>contact.php">Contact</a>
 </div>
 

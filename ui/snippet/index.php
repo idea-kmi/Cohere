@@ -45,36 +45,53 @@
 <body style="margin-left: 20px;">
 <h1>Snippet Examples</h1>
 
+Note: the url examples below would be used iframes included in third party sites.
+
 <div id="innerwrap">
 
 <hr/>
-<p>Single Idea</p>
-<iframe
+<h3>Single Idea</h3>
+
+<p><?php echo $CFG->homeAddress; ?>ui/snippet/snippet-node.php?nodeid=***a node id***&context=node&context=node&snippet=0</p>
+
+<!-- iframe
 src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-node.php?nodeid=137108145101185528487&context=node&context=node&snippet=0" width="300" height="160" scrolling="auto"
 frameborder="0"></iframe>
-<br>
+<br -->
 
-<p>Single Connection</p>
-<iframe src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-connection.php?connid=81178581881193255744&context=node&snippet=1" width="800" height="160" scrolling="auto" frameborder="0"></iframe>
+<h3>Single Connection</h3>
 
-<p>Connection List</p>
-<iframe
+<p><?php echo $CFG->homeAddress; ?>ui/snippet/snippet-connection.php?connid=***a connection id***&context=node&snippet=1</p>
+
+<!-- iframe src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-connection.php?connid=81178581881193255744&context=node&snippet=1" width="800" height="160" scrolling="auto" frameborder="0"></iframe -->
+
+<h3>Connection List</h3>
+
+<p><?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-list.php?snippet=2&q=***search term***&scope=all&start=0&max=20&orderby=date&sort=DESC&direction=right&context=search</p>
+
+<!-- iframe
 src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-list.php?snippet=2&q=cetis&scope=all&start=0&max=20&orderby=date&sort=DESC&direction=right&context=search"
 width="860" height="406" scrolling="no" frameborder="0">
-</iframe>
+</iframe -->
 
-<br><br>
-<p>Connection Neighbourhood</p>
-<iframe
+<br>
+<h3>Connection Neighbourhood</h3>
+
+<p><?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-neighbourhood.php?snippet=3&nodeid=***a node id ***1&start=0&max=20&orderby=date&sort=DESC&focalnode=***a focal node id***&direction=right&context=node</p>
+
+<!-- iframe
 	src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-neighbourhood.php?snippet=3&nodeid=137108251921195810901&start=0&max=20&orderby=date&sort=DESC&focalnode=137108251921195810901&direction=right&context=node"
 	width="1015" height="340" scrolling="no" frameborder="0">
-</iframe>
+</iframe -->
 
-<br><br>
-<p>Connection Network</p>
-<iframe src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-net.php?snippet=4&q=century&scope=all&start=0&max=20&orderby=date&sort=DESC&context=search"
+<br>
+<h3>Connection Network</h3>
+
+<p><?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-net.php?snippet=4&q=***search term***&scope=all&start=0&max=20&orderby=date&sort=DESC&context=search</p>
+
+<!-- iframe src="<?php echo $CFG->homeAddress; ?>ui/snippet/snippet-conn-net.php?snippet=4&q=century&scope=all&start=0&max=20&orderby=date&sort=DESC&context=search"
 	width="666" height="490" scrolling="no" frameborder="0">
-</iframe>
+</iframe -->
 
 </div>
 <?php

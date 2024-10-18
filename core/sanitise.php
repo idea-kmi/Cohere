@@ -418,7 +418,6 @@ function clean_text($text) {
 	} else {
 		$safeurls .= 'www.youtube.com/embed/';
 		$safeurls .= '|player.vimeo.com/video/';
-		$safeurls .= '|cohere.open.ac.uk/';
 		$safeurls .= '|www.ustream.tv/';
 		$safeurls .= '|www.schooltube.com/';
 		$safeurls .= '|archive.org/';
@@ -427,6 +426,7 @@ function clean_text($text) {
 		$safeurls .= '|www.teachertube.com/';
 		$safeurls .= '|sciencestage.com/';
 		$safeurls .= '|www.flickr.com/';
+		$safeurls .= '|'.$CFG->homeAddress;        
 	}
 
 	$safeurls .= ')%';

@@ -26,67 +26,8 @@
  *
  * Cohere API functions
  *
- * <p>This page describes the services currently available through the Cohere API. The service base URL is:
- * <pre>
- *     <a href="http://cohere.open.ac.uk/api/service.php">http://cohere.open.ac.uk/api/service.php</a>
- * </pre>
- * and it will always require a 'method' parameter.</p>
- *
- * <p>In all service calls, an optional parameter 'format' can be provided
- * to set how the output is displayed, the default is 'xml', but other options currently are 'gmap','json','list','rdf','rss', 'shortxml' and 'simile'.
- * Not all formats are available with all methods, as explained below:</p>
- * <ul>
- * <li>'xml', 'json' and 'rdf' formats are available to all methods</li>
- * <li>'rss' and 'shortxml' formats are only available to methods which return a NodeSet or ConnectionSet
- * <li>'gmap' and 'simile' formats are only available to methods which return a NodeSet.</li>
- * <li>'list' format is available to methods which return a NodeSet or a TagSet.</li>
- * </ul>
- * If you specify 'json' as the output format, then you can (optionally) provide a parameter 'callback'.</p>
- *
- * <p>Although all the example services calls show the parameters passed as GET requests, parameters will be accepted as either GET or POST -
- * so the parameters can be provided in any order - not just the order in which they've been listed on this page.</p>
- *
- * <p>Some services require a valid user login to work (essentially any add, edit or delete method) and in these cases, when you call
- * the service, you must also provide a valid Cohere session cookie, this can be obtained by calling the login service.
- * If you are calling the services via your web browser, you won't need to worry much about this, as your browser will automatically store and send
- * the cookie with each service call.</p>
- *
- * <p>If you are using a script to automate requests such as add or delete nodes, then rather than grabbing and resending the cookies,
- * you can obtain the sessionid from the userlogin request and then append this to each subsequent request by adding PHPSESSID={your-session-id} as an extra parameter.</p>
- *
- * <p>Example service calls:
- * <pre>
- *     <a href="http://cohere.open.ac.uk/api/service.php?method=getnode&amp;nodeid=131211811270778613001206700042870488149">http://cohere.open.ac.uk/api/service.php?method=getnode&amp;nodeid=131211811270778613001206700042870488149</a>
- *     <a href="http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093">http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093</a>
- *     <a href="http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=json">http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=json</a>
- *     <a href="http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=rdf">http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=rdf</a>
- *     <a href="http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=xml">http://cohere.open.ac.uk/api/service.php?method=getnodesbyuser&amp;userid=1371081452501184165093&amp;format=xml</a>
- * </pre>
- * </p>
- * <p>Example calls are given below for each service and it is noted which services require the user to be logged in</p>
- * <p>Note that if any required parameters are missing from a service call, then an error object will be returned detailing the missing parameter.</p>
- *
- * <p>For any datetime parameter the following formats will be accepted:</p>
- * <ul>
- * <li>14 May 2008</li>
- * <li>14-05-2008</li>
- * <li>14 May 2008 9:00</li>
- * <li>14 May 2008 9:00PM</li>
- * <li>14-05-2008 9:00PM</li>
- * <li>9:00</li>
- * <li>14 May</li>
- * <li>wed</li>
- * <li>wed 9:00</li>
- * </ul>
- * <p>and the following formats would not be accepted:</p>
- * <ul>
- * <li>14 05 2008</li>
- * <li>14/05/2008</li>
- * <li>14 05 2008 9:00</li>
- * <li>14/05/2008 9:00</li>
- * <li>14-05</li>
- * </ul>
- *
+ * For help on using the API services that call these functions please see the documentation
+ * that can be found in this code base at: /help/code-doc/Cohere-API/apilib.php
  */
 
 /**

@@ -40,13 +40,13 @@
 <div id="footer" style="border: 1px solid white">
 	<div style="height: 24px; padding: 5px; margin-left: 20px; margin-right: 20px; margin-top: 15px;">
 		<div style="float:right; line-height:24px">
-    	A <a href="http://projects.kmi.open.ac.uk/hyperdiscourse/">KMi</a> Tool
+		A <a href="https://kmi.open.ac.uk">KMi</a> Tool from the <a href="https:/open.ac.uk/">Open University</a>
     	| <a href="mailto:<?php print($CFG->EMAIL_REPLY_TO);?>?subject=Cohere Website">Contact</a>
 		</div>
 
 		<div style="margin:0 auto; width: 250px; line-height:24px;">
 			<a href="<?php print($CFG->homeAddress);?>conditionsofuse.php">Terms of Use</a> |
-			<a href="http://kmi.open.ac.uk/accessibility/"><?php echo $LNG->FOOTER_ACCESSIBILITY; ?></a> |
+			<a href="<?php print($CFG->accessibilityLink);?>"><?php echo $LNG->FOOTER_ACCESSIBILITY; ?></a> |
 			<a href="<?php print($CFG->homeAddress);?>privacy.php">Privacy</a>
 		</div>
 	</div>
@@ -59,7 +59,7 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 </script>
 <script type="text/javascript">
 if (typeof(_gat)=="object") {
-    var pageTracker = _gat._getTracker("<?php print($CFG->GOOGLE_ANALYTICS_KEY);?>");
+    var pageTracker = _gat._getTracker("<?php //print($CFG->GOOGLE_ANALYTICS_KEY);?>");
     pageTracker._initData();
     pageTracker._trackPageview();
 }

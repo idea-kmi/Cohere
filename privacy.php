@@ -33,7 +33,7 @@
 <p style='margin-left:36.0pt;text-indent:-18.0pt'>1.1.<span
 style='font:7.0pt "Times New Roman"'> </span>This statement sets out how we
 will use and protect personal information that you provide to us when you use
-the The Cohere website (http://cohere.open.ac.uk) ('Site')
+the The Cohere website (<?php echo $CFG->homeAddress; ?>) ('Site')
 in accordance with UK data protection requirements and in particular
 the Data Protection Act 1998 (&quot;the Act&quot;).</p>
 
@@ -157,7 +157,7 @@ personal information which we hold about you under the Act. A small fee will be
 payable. If you would like a copy of the information held on you please write
 to the Data Protection Coordinator (KMi - Cohere)
 at PO Box 497, The Open University, Walton Hall, Milton Keynes, MK7 6AT or
-email olnet-ci@open.ac.uk.</p>
+email kmi-idea@open.ac.uk.</p>
 
 <p style='margin-left:36.0pt;text-indent:-18.0pt'>6.2.<span
 style='font:7.0pt "Times New Roman"'> </span>If you think that any information

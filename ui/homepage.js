@@ -21,7 +21,7 @@
  *  possibility of such damage.                                                 *
  *                                                                              *
  ********************************************************************************/
-var HOMETABS = {"home":false ,/*"twitter":true,"tags":true,*/"screencast":true,"node":false,"conn":false,"user":false};
+var HOMETABS = {"home":false ,"screencast":true,"node":false,"conn":false,"user":false};
 var DEFAULTTAB = 'home';
 var CURRENT_IDEA_CALL = '';
 var CURRENT_CONN_CALL = '';
@@ -29,8 +29,6 @@ var CURRENT_CONN_CALL = '';
 Event.observe(window, 'load', function() {
 	// add events for clicking on the tabs
 	Event.observe('tab-home','click', function (){setTabPushed('home');});
-	//Event.observe('tab-twitter','click', function (){setTabPushed('twitter');});
-	//Event.observe('tab-tags','click', function (){setTabPushed('tags');});
 	Event.observe('tab-screencast','click',function (){setTabPushed('screencast');});
 	Event.observe('tab-node','click', function (){setTabPushed('node');});
 	Event.observe('tab-conn','click', function (){setTabPushed('conn');});
@@ -53,8 +51,6 @@ function setTabPushed(tab) {
 		} 
 	}
 	switch (tab){
-		//case 'twitter':
-		//	break;
 		case 'home':
 			if(!HOMETABS.home) {
 				loadActiveConnectionUsersHome();

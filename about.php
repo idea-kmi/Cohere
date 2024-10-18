@@ -98,40 +98,21 @@ li.option {
         <li>Use the <a href="<?php echo $CFG->homeAddress; ?>help/code-doc/Cohere-API/apilib.html">RESTful API services</a> to query, edit and mashup data from other tools</li>
     </ul>
 
-    <h2>Learn More</h2>
-
-    <p>Subscribe to <a href="http://kmi.open.ac.uk/technologies/cohere/">our Blog</a> to track developments as they happen.</p>
-    <p><a href="http://kmi.open.ac.uk/projects/hyperdiscourse/docs/Cohere.COMMA2008.pdf">Read this article</a> to learn more about the design of Cohere to support dialogue and debate.</p>
-
-    <h2>User Groups</h2>
-    <p>To discuss how Cohere can be used and make contact with other Cohere practitioners and research, please join our <a href="http://groups.google.com/group/coheregroup">Cohere group</a>.
-    <ul><li>To subscribe to the Cohere group send an e-mail to: coheregroup@googlegroups.com</li>
-    <li>To unsubscribe from the Cohere group send an e-mail to: coheregroup+unsubscribe@googlegroups.com</li></ul></p>
-
-    <p>We also have a separate <a href="http://groups.google.com/group/coheredev">Cohere developer group</a> for people wishing to discuss the Cohere API.
-    <ul><li>To subscribe to the Cohere developers group send an e-mail to: coheredev@googlegroups.com</li>
-    <li>To unsubscribe from the Cohere developers group send an e-mail to: coheredev+unsubscribe@googlegroups.com</li></ul></p>
-
     <h2>Version</h2>
 
-    <p>This is version 1.0 of the Cohere website. Please use 1.0 when entering support queries, bugs or feature requests on our <a href="<?php echo $CFG->supportAddress; ?>" target="_blank">reporting system</a>.</p>
+    <p>This is version 1.0 of the Cohere website. Please use 1.0 when entering support queries, bugs or feature requests on our <a href="<?php echo $CFG->supportAddress; ?>" target="_blank">support email address</a>.</p>
 
 
 	<h2>Open Source</h2>
 
-	<p>Cohere code is available for annonymous download from our subversion server under LGPL license.<br>
-	By downloading this code you are agreeing to this <a href="license.html" target="_blank">LGPL license</a>:<br>
-	<a href="http://cohere.open.ac.uk/subversion/public/">http://cohere.open.ac.uk/subversion/public/</a>
-
-
+	<p>Cohere code is available on GitHub under LGPL license.<br>
+	
     <h2>Acknowledgements</h2>
 
     Cohere is a tool developed in the UK <a target="CohereAbout" href="http://www.open.ac.uk">Open University</a>'s
     <a target="CohereAbout" href="http://kmi.open.ac.uk">Knowledge Media Institute</a>, funded by the
     <a target="CohereAbout" href="http://www.hewlett.org/Programs/Education/OER/openEdResources.htm">William and Flora Hewlett Foundation</a>,
     as part of the  <a target="CohereAbout" href="http://www.open.ac.uk/openlearn">OpenLearn</a> initiative to make high quality learning resources and sensemaking tools freely accessible via the Web.
-    It builds on the UK EPSRC-funded <a target="CohereAbout" href="http://kmi.open.ac.uk/projects/scholonto">Scholarly&nbsp;Ontologies</a> project, and the international
-    <a target="CohereAbout" href="http://compendium.open.ac.uk/institute">Compendium&nbsp;Institute</a>.
     Cohere design team is
         <a target="CohereAbout" href="http://kmi.open.ac.uk/people/sbs">Simon Buckingham Shum</a>,
         <a target="CohereAbout" href="http://kmi.open.ac.uk/people/bachler">Michelle Bachler</a>,

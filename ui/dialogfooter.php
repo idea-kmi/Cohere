@@ -29,7 +29,7 @@
 <div id="footer" style="width: 100%">
 	<div style="height: 24px; padding: 5px; margin-left: 20px; margin-right: 20px; margin-top: 15px;">
 		<div style="float:right; line-height:24px">
-    	A <a href="http://projects.kmi.open.ac.uk/hyperdiscourse/">KMi</a> Tool from the <a href="http://www.olnet.org/">OLnet</a> Project
+		A <a href="https://kmi.open.ac.uk">KMi</a> Tool from the <a href="https:/open.ac.uk/">Open University</a>
     	| <a href="<?php print($CFG->homeAddress);?>contact.php">Contact</a>
 		</div>
 

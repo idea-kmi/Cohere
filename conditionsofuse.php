@@ -33,7 +33,7 @@
 <h2>1. Introduction</h2>
 
 <p style='margin-left:36.0pt;text-indent:-18.0pt'>1.1.<span
-style='font:7.0pt "Times New Roman"'> </span>The Cohere website (http://cohere.open.ac.uk) ('Site')
+style='font:7.0pt "Times New Roman"'> </span>The Cohere website (<?php echo $CFG->homeAddress ;?>) ('Site')
 aims to provide an environment to create, connect and share Ideas.
 The Site is operated by The Knowledge Media Institute at the Open University ('we' or 'us') whose principal
 contact address is PO Box 197, Milton Keynes, MK7 6BJ, United Kingdom </p>
@@ -160,7 +160,7 @@ introduction or spread of a virus;</p>
 <p style='margin-left:36.0pt;text-indent:-18.0pt'>4.2.<span
 style='font:7.0pt "Times New Roman"'> </span>If you see something on the Site
 that you think is not acceptable under the terms above, please report it by
-sending an email to kmi-cohere@open.ac.uk. Please be clear about the type of
+sending an email to <?php echo $CFG->EMAIL_REPLY_TO; ?>. Please be clear about the type of
 complaint you are making and give us clear directions to where the misuse
 exists - including the web address and title of the page. We will remove
 content deemed unacceptable to us upon being made aware of it.</p>

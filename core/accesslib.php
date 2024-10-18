@@ -38,7 +38,7 @@ function userLogin($username,$password){
     clearSession();
 
 	/** Just in case **/
-    if($password == "" || $username == ""){
+    if($password == "" || $username == "") {
         $ERROR = new Hub_Error();
         $ERROR->createLoginFailedError();
         return $ERROR;
@@ -67,20 +67,6 @@ function userLogin($username,$password){
 					$ERROR->createLoginFailedError();
 					return $ERROR;
 				}
-			} else if ($user->getAuthType() == $CFG->AUTH_TYPE_OPENLEARN) {
-				$OLdata = validateAgainstOpenLearn($username, $password);
-				if ($OLdata['email'] != "" && $OLdata['name'] != "") {
-					$user->updateName($OLdata['name']);
-
-					createSession($user);
-					$user->resetInvitationCode();
-					$user->load();
-					return $user;
-				} else {
-					$ERROR = new Hub_Error();
-					$ERROR->createLoginFailedError();
-					return $ERROR;
-				}
         	} else {
 				$ERROR = new Hub_Error();
 				$ERROR->createLoginFailedError();
@@ -100,34 +86,9 @@ function userLogin($username,$password){
 			return $ERROR;
 		}
 	} else {
-        //user doesn't exist so see if openlearn user
-        $OLdata = validateAgainstOpenLearn($username, $password);
-        if ($OLdata['email'] != "" && $OLdata['name'] != "") {
-            //user has been validates against openlearn
-            $user = new User();
-            $user->setEmail($OLdata['email']);
-            $u = $user->getByEmail();
-
-            if ($u instanceof Error) {
-                // i.e. user doesn't already exist.
-                $u = new User();
-                $u->add($OLdata['email'],$OLdata['name'],$password,"",'N',$CFG->AUTH_TYPE_OPENLEARN,"","","");
-            } else if ($u instanceof User) {
-                $u->updateName($OLdata['name']);
-                $u->updateLastLogin();
-           } else {
-                return false;
-            }
-
-            createSession($u);
-            $u->resetInvitationCode();
-			$user->load();
-			return $user;
-        } else {
-			$ERROR = new Hub_Error();
-			$ERROR->createLoginFailedError();
-			return $ERROR;
-        }
+		$ERROR = new Hub_Error();
+		$ERROR->createLoginFailedError();
+		return $ERROR;
     }
 }
 
@@ -171,83 +132,6 @@ function startSession($time = 99999999, $ses = 'Cohere') {
     setcookie("Cohere",$user->userid,time()+99999999,"/");
     $user->updateLastLogin();
  }
-
-/**
- * Validates the user against openlearn
- *
- * @uses $CFG
- * @param string $username
- * @param string $password
- * @return array containing email and name keys
- */
-function validateAgainstOpenLearn($username, $password) {
-    global $CFG;
-
-    $data = "username=" . urlencode($username) . "&password=" . urlencode($password);
-
-    $ch = curl_init();
-    $cookiefile = $CFG->workdir."COOKIES_TEMP_".microtime().".txt";
-    curl_setopt($ch, CURLOPT_COOKIEJAR, $cookiefile);
-    curl_setopt($ch, CURLOPT_URL,$CFG->auth_openlearn_login_url);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 0);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-    ob_start();      // prevent any output
-    curl_exec ($ch); // execute the curl command
-    ob_end_clean();  // stop preventing output
-
-    curl_close ($ch);
-    unset($ch);
-    $reply;
-
-    $cookie = is_file( $cookiefile ) ? file($cookiefile) : false;
-    if( !empty($cookie) ) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookiefile);
-        curl_setopt($ch, CURLOPT_URL,$CFG->auth_openlearn_validate_url);
-        $buf2 = curl_exec ($ch);
-        $reply = $buf2;
-        curl_close ($ch);
-    }
-    // now delete the cookie file (don't need/want to keep these)
-    @unlink($cookiefile);
-
-    return parseOpenLearnResponse($reply);
-}
-
-
-/**
- * Process and extract data from the data returned from openlearn
- *
- * @param string $data xml data string
- * @return array containing email and name keys
- */
-function parseOpenLearnResponse($data){
-    $retdata = array();
-    $retdata['email'] = "";
-    $retdata['name'] = "";
-
-    if($data != null){
-        $xml_parser = xml_parser_create();
-        $values = null;
-        $index = null;
-        xml_parse_into_struct($xml_parser, $data, $values, $index);
-        xml_parser_free($xml_parser);
-
-        $email = "";
-        $name = "";
-        foreach ($index as $key=>$val) {
-            if ($key == "EMAIL") {
-                $retdata['email'] = $values[$val[0]]['value'];
-            } if ($key == "DISPLAYNAME") {
-                $retdata['name']= $values[$val[0]]['value'];
-            }
-        }
-    }
-    return $retdata;
-}
 
 /**
  * Check that the session is active and valid for the user passed.

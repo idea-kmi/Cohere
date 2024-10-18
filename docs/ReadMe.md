@@ -1,19 +1,114 @@
 
-# Cohere Developer Notes
+# Cohere
 
-This is a really quick overview of the site structure with some instructions further down on setting up the database and config files.
+> [!IMPORTANT]  
+> This code base was developed as part of research conducted at the Knowledge Media Institute at the Open University. Because it was research it may contain bespoke, or now redundant sections of code. This code base is no longer in active development. The majority of the code was originally developed between 2007 and 2010 with various updates and tweaks over the following years. So, a lot of the code is old in style and development practises.
+
+> [!WARNING]  
+> Some of this documentation may be out-of-date.
+
+
+## Contents
+
+*   [Overview](#overview)
+*   [License](#license)
+*   [System Requirements](#system-requirements)
+*   [Folders](#folders)
+*   [Setting up a Cohere Instance](#setting-up-a-cohere-instance)
+*   [Sites Config Settings](#sites-config-settings)
+*   [Language](#language)
+*   [Additional Developer Notes](#additional-developer-notes)
+
+*   [Introduction to using an Evidence Hub](#introduction-to-using-an-Evidence-Hub)
+
+
+## Overview
+
+We experience the information ocean as streams of media fragments, flowing past us in every modality... To make sense of these, learners, researchers and analysts must organise them into coherent patterns... Cohere was an idea management tool for people to weave meaningful connections between ideas, for personal, team or social use...  
+
+Cohere was part of an emerging vision of sensemaking infrastructure for crafting, sharing and disputing ideas. We hoped it would contribute to effective online deliberation and debate in fields such as open, participatory learning, e-democracy, scholarly research, and knowledge management. 
+
+## License
+
+The Cohere code base is released under the LGPL license: [http://www.fsf.org/licensing/licenses/lgpl.html](http://www.fsf.org/licensing/licenses/lgpl.html).  
+It includes third party code which should all have licenses which are compatible with LGPL (see **/core/lib** and **/ui/lib** folders to view third party libraries used)
 
 **NOTE:** While the Cohere code base is released under the LGPL license: http://www.fsf.org/licensing/licenses/lgpl.html, developers should be aware that the **admin** and the **timeline\_2.3.0** folder contains third party code that is under the GPL license: http://www.fsf.org/licensing/licenses/gpl-3.0.html
 
-If you need more help at present, please ask your questions through the Google [Cohere developer group](http://groups.google.com/group/coheregroup)
 
-## A Quick What’s Where
+## System Requirements
 
-The top level has the config.php file, (see 4. [Edit settings in /config.php to point to your set up and database](#config), below)
+The Cohere code was most recently tested on a Red Hat Enterprise Linux Server release 8.10 (Ootpa) using:  
+
+### Apache 2.4.37.
+
+Please add the following in your Apache config:  
+  
+`Options All -Indexes -MultiViews   RewriteEngine on   AllowOverride FileInfo AuthConfig`  
+  
+If you have .htaccess files disabled (AllowOverride none), it will not affect the running of the site.  
+Our .htaccess file has the following:  
+  
+```
+<IfModule mod\_deflate.c>
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/x-js
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/json
+AddOutputFilterByType DEFLATE application/ld+json
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE font/truetype
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+</IfModule>
+
+#RewriteEngine on
+#RewriteCond %{REQUEST\_URI} !/index-maintenance.php$
+#RewriteRule $ /index-maintenance.php \[R=302,L\]
+
+ErrorDocument 404 /404-error-page.php
+ErrorDocument 403 /403-error-page.php
+```
+
+So we use it to compress files to speed up the website and for having site specific 404 and 403 pages.  
+We also uncomment the commented out lines if we want to put Cohere into maintenace mode and display a holding page to the user (index-maintenace.php)  
+  
+
+### PHP version 7.4.33
+
+Modules installed:  
+`bcmath,bz2,calendar,Core,ctype,curl,date,dba,dom,enchant,ereg,exif,fileinfo,filter,ftp, gd,gettext,gmp,hash,iconv,imap,intl,json,ldap,libxml,mbstring,mcrypt,memcache,mysql,mysqli,odbc,openssl,pcntl,pcre,PDO,pdo_mysql,PDO_ODBC,pdo_pgsql,pdo_sqlite,pgsql,Phar,phpcups,posix, pspell,readline,recode,Reflection,rrdtool,session,shmop,SimpleXML,snmp,soap,sockets,SPL,sqlite3,standard, sysvmsg,sysvsem,sysvshm,tidy,tokenizer,uuid,wddx,xml,xmlreader,xmlrpc,xmlwriter,xsl,zip,zlib`  
+  
+Cohere is not necessarily dependent on all these modules. These are just the modules installed on the server Cohere was mostl recently on. 
+I am unsure at this stage if any of them are non standard, or if Cohere code in anyway replies on them. So, just in case, I am listing them.  
+  
+NOTE: In your php.ini make sure set allow-url-fopen = on.  
+
+### MySQL
+
+Cohere uses MySQL/MariaDB as the database at present. So you will need to install MySQL on your server. We have most recently tested on mysql Ver 15.1 Distrib 10.3.39-MariaDB. The database layer of the code has been abstracted out somewhat to make it eaiser for a developer to extend Cohere code base to use a different database.  
+
+### Email
+
+Cohere uses emails to tell users their registration is successful etc. and send out email digests of items or people they are following. 
+So your server should be able to do emailing if you want these to be sent. You can switch off emailing with a setting in the config file if required (see [Setup the Config File](#setup-the-config-file), below), but then all user accounts would need to be setup and validated by hand.  
+
+
+## Folders
+
+The top level has the config.php file, (see [Setup the Config File](#setup-the-config-file), below)
 
 The top level has the main primary php files for the main pages of the site: the index file, and the main context pages, like user, search, groups, the login, logout and reset pages and the fav icon etc..
 
-**Folders:**
+**The Folders:**
 
 *   **\_util** \- This is the code used to create the api apilib comments. You will need PHPDocumentor installed and you will need to edit the batch files in this folder as appropriate if you want to use this on your version of the Cohere code.
 *   **admin** \- This folder has various files that produce and display various statistics about the activity on the site. If you are a user who has the ‘IsAdministrator’ field set to ‘Y’, you will see an extra menu item when logged in at the top of the screen called admin, for accessing these stats reports.
@@ -46,14 +141,14 @@ The top level has the main primary php files for the main pages of the site: the
 
   
 
-## Setting up a Cohere Server
+## Setting up a Cohere Instance
 
-### Setup the database. 
+### Creating the Database 
 
 You can find the schema for the database here: [/install/db.sql](/install/db.sql). The sql in this file will create a database called `cohere` and all the tables and relationships cohere requires. If you want to change the name of the database, edit the `CREATE DATABASE..` line and rename. Note, given the original age of this system, the character set it uses is latin1. You may want to edit the table creation statments to use UTF8 these days.
 
 
-### Add the default data
+### Adding the Default Data
 
 To add all the default data that the website will need to have in the database to get started with, you need to edit and then run the sql in the file [/install/default-data.sql](../install/default-data.sql) into the 'cohere' database you created in step 1, (more details below):
 
@@ -104,108 +199,64 @@ The following parameters are ones you really DO need to change for your site to 
 (Bing map key: You will need to go and get a Bing key for your site) [https://www.bingmapsportal.com/](https://www.bingmapsportal.com/)  
 Used in code for long/lat from address: [https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-query)  
       
-### Hardcoded URL
 
-**Important:**There are many places in the server code where there are hard coded url's to the Cohere or KMi websites. Although we have tried to use the config setting where possible, there are still many that you will need to edit.
-    
-**The section below talks about the places you will need to modify the urls in the code as well as other code modification you may need to make, so please go through it carefully!!**
+## Language
 
-Below is a screen shot of the search results for open.ac.uk in Cohere verson 2, (where the match count is not stated, it means there is 1):
+This code base only currently supplies English language files. Which interface language Cohere uses is controlled by the config setting:
 
-![](images/url-list.png)
+**`$CFG->language = 'en';`**  
 
-Let's look at these a folder at a time:
+(The name must correspond to a folder in the 'language' folder where the translated texts should exist.)  
+  
+**`$CFG->defaultcountry = "United Kingdom";`**  
+(Country name as it appears in the language/<your language as above>/countries.php list to used as the default selection in Countries menus. If you change the language used you must also change this text.)  
+  
+> [!NOTE]  
+> We started retro-fitting a language file system to Cohere to match that used in the Evidehce Hub and later tools. But it is not necessarily complete and Enlish language text may still be found in places in the code. This needs finishing.
 
-#### admin
+For more information on setting up a new language, see the README.txt file in the `/language` folder.
 
-![](images/url-admin.png)
-
-The footer.php file has a reference to KMi home page for the related project. It also has a reference to OLnet website, which is the project currently funding Cohere. You may want to leave these as they are on your site or change the footer to your own link(s). See also ui/footer.php and dialogfooter.php which has the same links.
-
-#### docs
-
-Well... your here. The currently available documentation for the Cohere website
-
-#### help
-
-![](images/url-help.png)
-
-These two are the email address for the author of the rdf component in Cohere. You will want to lave these.
-
-#### io
-
-![](images/url-import.png)
-
-You will need to replace these four urls with your own urls to your local ontology folder (in case for some reason ours moves)
-
-#### ui
-
-![](images/url-includes.png)
-
-The dialogfooter.php and footer.php files have a reference to KMi home page for the related project. They also has a reference to OLnet website, which is the project currently funding Cohere. You may want to leave these as they are on your site or change the footers completely to your own link(s). (see slao help/footer.php above)
-
-The header.php file contains the search examples. As these are urls to actual Cohere searches and there related data, you will have to either leave them completely alone (but be aware people will be redirected to Cohere.open.ac.uk if they click them, or better, replace all the search examples with examples from your own site.
-
-#### install
-
-![](images/url-install.png)
-
-The default-data.sql file holds default data for Cohere ([see 2. above](#defaultdata)). You will wnat to edit the email address and the password for this default user.
-
-#### jetpack
-
-![](images/url-jetpack.png)
-
-This one is tool scary to show you. The Cohere Jetpack is an experimental new Firefox extension based on the jetpack prototype library. If you really want to offer this to your users, then you will need to replace all the urls particularly in the cohere-jetpack.js. Otherwise I would just remove the link to it on the includes/sidebar.php and forget about this folder. We will be re-writing this Jetpack using the new Jetpack api as soon as it is sufficiently mature.
-
-#### ontology
+## Additional Developer Notes
+ 
+### Path Changes for cohere.owl
 
 ![](images/url-ontology.png)
 
-You will need to replace these with your own url.
+Although we have tried to use the config setting where possible, for the above references you will need to replace these urls with urls to your hosted cohere owl ontology file.
 
-#### core
+### GeoCoding
 
-![](images/url-phplib.png)
+In `core/utillib.php` there is a function called `geoCode` that currently has a hardcoded url to a Bing service for geo coding and it will probably no longer work and will need replacing with another service.
 
-The first 12 of these urls are just in the examples at the top of the file. You can leave them.
+### Other Changes
 
-However, the last one is a reference to our proxy. You will need to edit this to your proxy, or is you don't have one, remove the proxy code line.
+It is important that you rewrite and make your own the following pages/files:
 
-#### plugin
+`privacy.php`
+`conditionsofuse.php`
+`cookies.php`
+`about.php`
 
-![](images/url-plugin.png)
+Note: `about.php` will contain links that will not work anymore.
 
-These are important. They are related to the auto-updating of the Cohere Firefox extension plugin. If you decide to offer your users the FireFox extension and you want it to write to your database, you will need to edit the cohere-firefox-plugin code (released in a separate folder in svn so that the url it uses to access the services is yours and you will need to edit these urls so that your users get auto updates from your version not ours.
+We would also recommend you rewrite / adjust to your needs:
 
-#### ui/screencasts
+`index.php`
 
-![](images/url-screencasts.png)
+and the headers and footers, e.g.:
+`ui/header.php`
+`ui/helpheader.php`
+`ui/dialogheader.php`
+`ui/dialogheader2.php`
+`ui/footer.php`
+`ui/dialogfooter.php`
+`admin/footer.php`
 
-You will need to replace this with your own url.
+and the footer parts of:
+`admin/groupContextStats.php`
+`admin/groupContextStats2.php`
+`admin/userContextStats.php`
+`admin/generalStats.php`
 
-#### about.php
+The Google Anlytics bit in all the footers (search the code for 1<!-- Google analytics -->`) is the old style for Universal Analytics, so those will all need replacing/updating.
 
-![](images/url-about.png)
-
-OK, you probably just want to do your own about page. You may want to pick through and leave some links to Cohere main, that is up to you.
-
-#### config-sample.php
-
-![](images/url-configsample.png)
-
-This is the file you will need to copy over and rename config.php for your site as mentioned in 3 and 4 above. We give you some defaults for the support and blog. You will have to decide if you want to keep a link to our openlean site.
-
-**IMPORTANT:** There is code in the file core/accesslib.php to validate against OpenLearn. You will need to review/remove this code as it will only work properly on the same subdomain.
-
-![](images/openlearn.png)
-
-#### config.php
-
-You will replace this file with your own version copied from the config-sample (see sections 3 and 4 above).
-
-#### index.php
-
-![](images/url-index.png)
-
-As with the header.php file, these are links to example searches of Cohere. You will want to edit these to your own example otherwise users will be redirected to our site. You may also want to think about changing the **Twitter** readers to point at your own account / searches etc.

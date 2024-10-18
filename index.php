@@ -83,9 +83,6 @@ li.option {
     <div id="tabber">
         <ul id="tabs" class="tab">
             <li class="tab"><a class="tab" id="tab-home" href="#home"><span class="tab">Home</span></a></li>
-            <!-- li class="tab"><a class="tab" id="tab-welcome" href="#welcome"><span class="tab">Welcome</span></a></li -->
-            <!-- li class="tab"><a class="tab" id="tab-twitter" href="#twitter"><span class="tab">Twitter</span></a></li -->
-            <!-- li class="tab"><a class="tab" id="tab-tags" href="#tags"><span class="tab">Tag Cloud</span></a></li -->
             <li class="tab"><a class="tab" id="tab-screencast" href="#screencast"><span class="tab">Screencasts</span></a></li>
             <li class="tab"><a class="tab" id="tab-node" href="#node"><span class="tab">Ideas</span></a></li>
             <li class="tab"><a class="tab" id="tab-conn" href="#conn"><span class="tab">Connections</span></a></li>
@@ -106,58 +103,11 @@ li.option {
 						 <div id="home3"><img alt="" src="images/home/idea-blob-step3.png"/><br/>Discover new <a href="index.php#node" onclick="setTabPushed('node')">ideas</a> and <a href="index.php#user" onclick="setTabPushed('user')">people</a></div>
 						 <div style="clear:both;"></div>
 					 </div>
-
-					<!-- div style="float: left; padding-bottom: 10px;">
-
-						<div style="clear: both; float: left; margin-top: 10px; margin-right: 30px; ">
-							<div style="margin-bottom:10px; height: 20px; background:#F8EAF3; padding-left: 5px; padding-top: 4px; "><strong>Top Connection Builders</strong></div>
-							<div id="tab-content-home-users" style="border: 1px solid #d3e8e8; width: 320px; overflow: auto;"></div>
-						</div>
-
-						<div style="float:left; margin: 0px; margin-top: 10px; margin-left: 5px; margin=right: 0px;">
-							<div style="margin-bottom:10px; height: 20px; background:#F8EAF3; padding-left: 5px; padding-top: 4px; "><strong>News</strong></div>
-
-							<script src="http://widgets.twimg.com/j/2/widget.js"></script>
-							<script>
-							new TWTR.Widget({
-							  version: 2,
-							  type: 'profile',
-							  rpp: 20,
-							  interval: 6000,
-							  width: 380,
-							  height: 290,
-							  theme: {
-								shell: {
-								  background: '#d3e8e8',
-								  color: '#308d88'
-								},
-								tweets: {
-								  background: '#ffffff',
-								  color: 'DimGrey',
-								  links: '#e80074'
-								}
-							  },
-							  features: {
-								scrollbar: true,
-								loop: false,
-								live: false,
-								hashtags: true,
-								timestamp: true,
-								avatars: false,
-								behavior: 'all'
-							  }
-							}).render().setUser('cohereweb').start();
-							</script>
-						</div>
-
-
-					</div -->
-
 				</div>
 
 				<div style="clear: both; float:left; margin-left: 5px; margin-top: 10px; padding-bottom: 10px; ">
-					<div style="clear:both; float:left; margin-bottom: 10px; height: 20px; background:#F8EAF3; width: 735px; padding-left: 5px; padding-top: 4px;"><strong>Example Network View. Click image to see live version!</strong></div>
-					<a style="clear:both; float:left;" href="http://cohere.open.ac.uk/group.php?connid=&userid=&nodeid=&url=&groupid=137108251480800349001234365781&q=&scope=all&focalnode=&start=0&max=-1&orderby=date&sort=DESC&netq=&netscope=&netnodeid=&direction=right#conn-net" target="_blank"><img src="images/home/homepage-network3.png" style="border:2px solid gray;" /></a>
+					<div style="clear:both; float:left; margin-bottom: 10px; height: 20px; background:#F8EAF3; width: 735px; padding-left: 5px; padding-top: 4px;"><strong>Example Network View.</strong></div>
+					<img src="images/home/homepage-network3.png" style="border:2px solid gray;" />
 				</div>
 
 				<div id="tab-content-home-conn" style="overflow: hidden; clear:both; float:left; width: 740px; padding-right: 5px: 0px; padding: 0px; margin-top:10px; margin-left: 5px;">
@@ -309,38 +259,6 @@ li.option {
                 </table>
 
                 <script type="text/javascript">
-
-                    /*
-					var itemCloseIdea = document.getElementById('add-idea-sc-close');
-                    itemCloseIdea.style.display = "none";
-                    itemCloseIdea.addEventListener("click", ytAddIdeaC);
-
-                    var itemOpenIdea = document.getElementById('add-idea-sc-open');
-                    itemOpenIdea.addEventListener("click", ytAddIdeaC);
-
-                    var itemCloseConn = document.getElementById('add-conn-sc-close');
-                    itemCloseConn.style.display = "none";
-                    itemCloseConn.addEventListener("click", ytAddConn);
-
-                    var itemOpenConn = document.getElementById('add-conn-sc-open');
-                    itemOpenConn.addEventListener("click", ytAddConnC);
-
-
-                    var itemOpenURL = document.getElementById('add-url-sc-close');
-                    itemOpenURL.style.display = "none";
-                    itemOpenURL.addEventListener("click", ytAddURL);
-
-                    var itemOpenURL = document.getElementById('add-url-sc-open');
-                    itemOpenURL.addEventListener("click", ytAddURLC);
-
-
-                    var itemCloseOER = document.getElementById('add-oer-sc-close');
-                    itemCloseOER.style.display = "none";
-                    itemCloseOER.addEventListener("click", ytCIOER);
-
-                    var itemOpenOER = document.getElementById('add-oer-sc-open');
-                    itemOpenOER.addEventListener("click", ytCIOERC);
-					*/
                 </script>
 
                 <h3>Jetpack Movies (An experimental Firefox Extension)</h3>
@@ -348,37 +266,30 @@ li.option {
 		            <tr>
 		        		<td><b>Mozilla Firefox Competition 2009: Jetpack for Learning</b></td>
 		        		<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=xKykgBo-zGI">on YouTube</td>
-		        		<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/FirefoxCompetition2009-smaller.m4v">High res version (approx 14MB)</a></td>
 		        	</tr>
 	               	<tr>
                 		<td><b>Quick Overview</b></td>
                 		<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=uOPtKYU8I3A">on YouTube</td>
-                		<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/overview.mov">High res version (approx 10MB)</a></td>
-                	</tr>
+                 	</tr>
                 	<tr>
             			<td><b>Login</b></td>
             			<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=wiS4HY7MVI8">on YouTube</td>
-            			<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/login.mov">High res version (approx 11MB)</a></td>
             		</tr>
                 	<tr>
         				<td><b>Clips Slidebar</b></td>
         				<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=W1B_z9HH3kY">on YouTube</td>
-        				<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/clipsSlidebar.mov">High res version (approx 18MB)</a></td>
         			</tr>
                 	<tr>
     					<td><b>Ideas Slidebar</b></td>
     					<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=yRw3zN_GypM">on YouTube</td>
-    					<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/ideasSlideabar.mov">High res version (approx 83MB)</a></td>
-    				</tr>
+     				</tr>
                 	<tr>
 						<td><b>Connections Slidebar</b></td>
 						<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=fFlAc9Xh3C0">on YouTube</td>
-						<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/connectionsSlidebar.mov">High res version (approx 82MB)</a></td>
 					</tr>
                 	<tr>
 						<td><b>Navigation the Web through Ideas and Connections</b></td>
 						<td><a title="Go to YouTube to watch movie" href="http://www.youtube.com/watch?v=q3hvFNYzE1U">on YouTube</td>
-						<td><a title="Access high resolution version of movie" href="http://cohere.open.ac.uk/jetpack/movies/navigation.mov">High res version (approx 31MB)</a></td>
 						</tr>
 				</table>
             </div>

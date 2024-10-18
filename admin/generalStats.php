@@ -161,8 +161,8 @@ if($USER == null || $USER->getIsAdmin() == "N"){
 			$count = count($resArray);
 			for ($i=0; $i<$count; $i++) {
 				$array = $resArray[$i];
-				$recentName = $array1['Name'];
-				$recentDate = $array1['CreationDate'];
+				$recentName = $array['Name'];
+				$recentDate = $array['CreationDate'];
 			}
 		}
 
@@ -176,7 +176,7 @@ if($USER == null || $USER->getIsAdmin() == "N"){
 		} else {
 			$count = count($resArray2);
 			for ($i=0; $i<$count; $i++) {
-				$array = $resArray2[$i];
+				$array2 = $resArray2[$i];
 				$popularName = $array2['Name'];
 				$popularCount = $array2['num'];
 			}
@@ -255,9 +255,9 @@ if($USER == null || $USER->getIsAdmin() == "N"){
 		if (!$resArray) {
 			$err .= " ".$DB->conn->error;
 		} else {
-			$count = count($resArray);
-			for ($i=0; $i<$count; $i++) {
-				$array = $resArray[$i];
+			$countj = count($resArray);
+			for ($j=0; $j<$countj; $j++) {
+				$array = $resArray[$j];
 
 				$id = $array['ID'];
 				$node = new CNode();
@@ -526,7 +526,7 @@ window.onload = init();
 
 </div> <!-- end main -->
 <div id="footer">
-    A <a href="http://projects.kmi.open.ac.uk/hyperdiscourse/">KMi</a> Tool from the <a href="http://www.olnet.org/">OLnet</a> Project
+    A <a href="https://kmi.open.ac.uk">KMi</a> Tool from the <a href="https:/open.ac.uk/">Open University</a>
     | <a href="<?php print($CFG->homeAddress);?>contact.php">Contact</a>
 </div>
 

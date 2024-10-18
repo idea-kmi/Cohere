@@ -30,7 +30,7 @@
 <div style="margin:10px;">
 	<h1>404: Page Not Found</h1>
 	<p>We're very sorry, but the page you requested cannot be found on this server.</p>
-	<p>Try going to the root page of the <a href="http://cohere.open.ac.uk/">Cohere website</a> instead.</p>
+	<p>Try going to the root page of the <a href="<?php echo $CFG->homeAddress ;?>">Cohere website</a> instead.</p>
 </div>
 
 <?php
